@@ -1,24 +1,24 @@
 import { useContext, createContext } from "react";
 
-import { auth } from "./../firebase";
 import {
-  GoogleAuthProvider,
-  signInWithpopup,
-  signOut,
-  onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged,
 } from "firebase/auth";
+import { auth } from "../firebase";
 
-const AuthContext = createContext();
+const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithpopup(auth, provider);
+    signInWithPopup(auth, provider);
   };
   return (
-    <AuthContext.AuthContextProvider value={{googleSignIn}}>
+    <AuthContext.Provider value={{googleSignIn}}>
       {children}
-    </AuthContext.AuthContextProvider>
+    </AuthContext.Provider>
   );
 };
 
