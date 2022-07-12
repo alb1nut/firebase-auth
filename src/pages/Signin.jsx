@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom"
 
 const Signin = () => {
 
-  const navigate= useNavigate()
+  const navigate = useNavigate()
   const { googleSignIn,user } =UserAuth()
 
   useEffect(()=>{
     if(user != null ){
       navigate("/account")
     }
-  },[user])
+  },[user,navigate])
 
   const handleGoogleSignIn = async ()=>{
     try{
