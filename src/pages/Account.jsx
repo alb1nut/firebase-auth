@@ -1,11 +1,17 @@
 import React from "react";
+import { UserAuth } from "../context/AuthContext";
 
 const Account = () => {
+
+  const { user } =UserAuth()
+  console.log(user);
   return (
     <div className="w-[300] m-auto">
       <h1 className="text-center text-2xl font-bold pt-12">Account</h1>
       <div>
-        <p>Welcome, User</p>
+        <p>Welcome, {user?.displayName}</p>
+        <p>Mail, {user?.email}</p>
+        <p>Number, {user?.phoneNumber != null ? user?.phoneNumber : "No Number"}</p>
       </div>
       <button className="border py-2 px-5 mt-10">Logout</button>
     </div>
